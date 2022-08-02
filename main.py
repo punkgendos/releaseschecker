@@ -206,9 +206,8 @@ def sendMsg():
 
 
 def clearTable():
-    today_list = str(TODAY).split('-')
-    day = int(today_list[2]) - 1
-    yesterday = today_list[0] + '-' + today_list[1] + '-' + str(day)
+    yesterday = datetime.now(timezone.utc) + timedelta(hours=-21, minutes=0)
+    yesterday = yesterday.date()
     con = sqlConnection()
     cur = con.cursor()
     ids = cur.execute("SELECT id FROM releases WHERE date=?", (yesterday,))
@@ -226,7 +225,7 @@ if __name__ == '__main__':
         print('Done check')
         clearTable()
         print('Done clear')
-#        sendMsg()
+        sendMsg()
         print('Done msg')
         logging.info('Done')
     except Exception as e:

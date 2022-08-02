@@ -1,2 +1,6 @@
-releasechecker.log
+.idea/
+venv/
+releaseschecker.log
 settings.py
+releases.db
+last_id.txt

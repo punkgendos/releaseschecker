@@ -1,5 +1,6 @@
 .idea/
 venv/
+__pycache__
 releaseschecker.log
 settings.py
 releases.db
